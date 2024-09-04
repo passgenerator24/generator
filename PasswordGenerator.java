@@ -108,6 +108,7 @@ public class PasswordGenerator
         
         // Convert to string and output the result
         String finalPassword = new String(passwordArray);
+        System.out.println("Your username is: " + user);
         System.out.println("Your password is: " + finalPassword);
     }
 }
