@@ -49,7 +49,7 @@ public class PasswordGeneratorInvalidInputTests
         // Example validation logic based on input
         if (length <= 0) 
         {
-            throw new IllegalArgumentException("Password length should be greater than 0");
+            throw new IllegalArgumentException("Password length must be greater than 0");
         }
         if (!includeLowercase && !includeUppercase && !includeDigits && !includeSpecial) 
         {
