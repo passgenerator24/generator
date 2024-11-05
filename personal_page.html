@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CV Homepage</title>
+    <style>
+        body {
+            font-family: Garamond, sans-serif;
+        }
+
+        .split {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .left {
+            left: 0;
+            background-color: white;
+            width: 55%;
+        }
+
+        .right {
+            right: 0;
+            background-color: #1978e4;
+            width: 45%;
+            box-shadow: -10px 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .centered {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .centered-left {
+            position: absolute;
+            margin: 10%;
+            text-align: start;
+        }
+
+        .logo {
+            position: absolute;
+            font-size: 35px;
+            color: #646464;
+            top: -10px;
+            left: 5%;
+        }
+
+        .whitetext {
+            color: #E5E5E5;
+        }
+
+        .greytext {
+            color: #646464;
+        }
+
+        a,
+        a:visited {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="split left">
+        <div class="logo">
+            <h4>CV</h4>
+        </div>
+        <div class="centered-left">s
+            <h1>Welcome, </h1>
+            <h1><span th:text="${userLogin}"></span></h1>
+            <p class="greytext left-paragraph">Your accounts</p>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="split right">
+        <div class="centered">
+            <p>Password Generator</p>
+        </div>
+    </div>
+</body>
+
+</html>
