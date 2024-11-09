@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CV Homepage</title>
+    <style>
+        body {
+            font-family: Garamond, sans-serif;
+        }
+
+        .split {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .left {
+            left: 0;
+            background-color: white;
+            width: 55%;
+        }
+
+        .right {
+            right: 0;
+            background-color: #1978e4;
+            width: 45%;
+            box-shadow: -10px 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .centered {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .centered-left {
+            position: absolute;
+            margin: 10%;
+            text-align: start;
+        }
+
+        .logo {
+            position: absolute;
+            font-size: 35px;
+            color: #646464;
+            top: -10px;
+            left: 5%;
+        }
+
+        .whitetext {
+            color: #E5E5E5;
+        }
+
+        .greytext {
+            color: #646464;
+        }
+
+        a,
+        a:visited {
+            color: black;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 18px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="split left">
+        <div class="logo">
+            <h4>CV</h4>
+        </div>
+        <div class="centered-left">
+            <h1>Welcome, </h1>
+            <h1><span th:text="${userLogin}"></span></h1>
+            <p class="greytext left-paragraph">Your accounts</p>
+            <a href="/logout">Logout</a>
+            <br><br>
+            <button class="addbtn">Add</button>
+            <table>
+
+                <tbody>
+                    <tr th:each="credential : ${credentials}">
+                        <td th:text="${credential.account}"></td>
+                        <td th:text="${credential.username}"></td>
+                        <td th:text="${credential.password}"></td>
+                        <td><button class="editbtn">Edit</button></td>
+                        <td><button class="deletebtn"
+                                onclick="return confirm('Are you sure you want to delete this account credential?')">Delete</button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="split right">
+        <div class="centered">
+            <p>Password Generator</p>
+        </div>
+    </div>
+    <script>
+        function deleteCredential(userId, credentialId) {
+            if (confirm('Are you sure you want to delete this account credential?')) {
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = `/users/${userId}/credentials/${credentialId}`;
+                form.innerHTML = '<input type="hidden" name="_method" value="delete">';
+                document.body.appendChild(form);
+                form.submit();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
