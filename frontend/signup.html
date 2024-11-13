@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeVault Sign Up</title>
+    <link rel="stylesheet" href="css/signup.css"> <!-- Link to signup.css -->
+</head>
+<body>
+    <!-- Logo in the top left corner -->
+    <div class="logo">CV</div>
+    
+    <div class="signup-container">
+        <!-- Signup Section -->
+        <div class="signup-section">
+            <h2>Sign Up</h2>
+            <form class="signup-form" onsubmit="handleSignUp(event)">
+                <input type="text" id="signup-username" placeholder="Username" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="login-link">
+                <a href="index.html">Already have an account?</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeVault Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">CV</div>
+        
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h1>CodeVault</h1>
+            <p>Welcome to CodeVault, your secure and reliable password repository.
+               CodeVault simplifies password management by offering a safe space
+               to store, encrypt, and manage your credentials. Whether you are
+               protecting personal accounts or managing multiple passwords for work,
+               CodeVault will help ensure your sensitive information is always
+               secure and easily accessible.</p>
+        </div>
+        
+        <!-- Vertical Divider Line -->
+        <div class="divider"></div>
+        
+        <!-- Login Section -->
+        <div class="login-section">
+            <h2>Login</h2>
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="signup-link">
+                <a href="signup.html">Don't have an account?</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

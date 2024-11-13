@@ -1,0 +1,244 @@
+/* General page styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%; /* Ensure full width */
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+/* Dashboard container to hold left and right panels */
+.dashboard-container {
+    display: flex;
+    width: 100%; /* Full width */
+    max-width: 1400px; /* Limit max width to avoid excessive stretching on very large screens */
+    height: 100vh;
+    box-sizing: border-box;
+    position: relative; /* Needed for positioning the user icon */
+}
+
+/* Left panel styling */
+.left-panel {
+    width: 65%; /* Adjust for responsive layout */
+    padding: 40px 60px 40px 40px; /* Increased padding for spacing */
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.welcome-message {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+/* Account list styling */
+.account-list {
+    margin-top: 20px;
+}
+
+.account-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.account-item h4 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.account-item p {
+    margin: 0;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.edit-btn, .delete-btn {
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    color: #333;
+}
+
+/* Vertical divider line styling */
+.divider {
+    width: 1px;
+    background-color: black;
+    height: 100vh; /* Full viewport height */
+    position: absolute;
+    left: 65%; /* Positioned at 65% of the container */
+    top: 0;
+}
+
+/* User Icon styling next to the vertical divider */
+.user-icon {
+    position: absolute;
+    top: 20px; /* Aligns the icon with the top margin */
+    left: calc(65% + 20px); /* Positions the icon next to the divider */
+    font-size: 1.8em;
+    color: black;
+}
+
+/* Right panel styling */
+.right-panel {
+    width: 35%; /* Remaining width */
+    padding: 40px 40px 40px 60px; /* Increased padding for spacing */
+    box-sizing: border-box;
+}
+
+.right-panel h3 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Form styling for creating account credentials */
+.credential-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.credential-form input {
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.credential-form button {
+    background-color: black;
+    color: white;
+    padding: 12px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.credential-form button:hover {
+    background-color: #333;
+}
+
+/* Password Generator Section Styling */
+.password-generator {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.password-generator label {
+    font-size: 1em;
+}
+
+/* Slider Switch Styling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Password Length Display Styling */
+#password-length {
+    width: 100px;
+    margin-left: 10px;
+}
+
+#length-display {
+    font-size: 0.9em;
+    color: #555;
+}
+
+#generated-password {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.password-generator button {
+    background-color: black;
+    color: white;
+    padding: 12px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.password-generator button:hover {
+    background-color: #333;
+}
