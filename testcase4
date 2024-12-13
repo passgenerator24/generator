@@ -1,0 +1,80 @@
+// Required imports
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Optional;
+
+// Entity Class for the whole Repository
+@Entity
+public class Repository {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    // You can add other fields like files, commits, and settings here
+
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+}
+
+// Repository Interface for whole Database Access
+@Repository
+public interface RepositoryRepo extends JpaRepository<Repository, Long> {
+}
+
+// The service for Repository Operations
+@Service
+public class RepositoryService {
+
+    @Autowired
+    private RepositoryRepo repositoryRepo;
+
+    public Repository findRepositoryById(Long id) {
+        return repositoryRepo.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Repository not found"));
+    }
+
+    public void deleteRepository(Long id) {
+        Repository repo = findRepositoryById(id);
+        repositoryRepo.delete(repo);
+        // Add any logic to remove related data like files, commits, and settings
+    }
+}
+
+// The controller for Repository Operations
+@RestController
+@RequestMapping("/repositories")
+public class RepositoryController {
+
+    @Autowired
+    private RepositoryService repositoryService;
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteRepository(@PathVariable Long id) {
+        repositoryService.deleteRepository(id);
+        return ResponseEntity.ok("Repository deleted successfully");
+    }
+}
+
+// Example for the Test Case
+@RestController
+@RequestMapping("/test")
+public class TestController {
+
+    @Autowired
+    private RepositoryRepo repositoryRepo;
+
+    @PostMapping("/create")
+    public ResponseEntity<Repository> createRepository(@RequestBody Repository repo) {
+        return ResponseEntity.ok(repositoryRepo.save(repo));
+    }
+}
